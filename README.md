@@ -1,2 +1,2 @@
-# ce-salgado.github.io
+# carlossalgadoecon.github.io
 Personal website
