@@ -4,369 +4,327 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Carlos Salgado García</title>
-<meta name="description" content="Carlos Salgado García, development economist working on public finance, taxation, inequality and institutions, with a focus on Latin America.">
+<meta name="description" content="Carlos Salgado García, Honduran development economist working on public finance, taxation and inequality, with a focus on Latin America.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- EDIT HERE: fonts. Choose fonts at fonts.google.com, replace this link, then change --serif and --sans below -->
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- EDIT HERE: font. Choose a font at fonts.google.com, replace this link, then change --font below -->
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   /* =========================================================
-     EDIT HERE: colors and fonts for the whole site
+     EDIT HERE: colors, font and text size for the whole site
      Colors are hex codes. Pick new ones at htmlcolorcodes.com
-     --bg      page background
-     --surface background of the "Interests" cards
-     --ink     main text
-     --muted   grey secondary text
-     --line    thin divider lines
-     --accent  links, buttons, labels, section numbers
+     --text        main text (black)
+     --muted       grey text (years, places)
+     --link        blue for institutions and links
+     --link-hover  darker blue when the mouse is over a link
+     --line        thin divider lines
+     --nav-scroll  menu bar color after scrolling down
+     --nav-text    menu items (light)
+     --nav-hover   menu items under the mouse (dark)
+     --size        text size everywhere except titles
      ========================================================= */
   :root {
-    --bg: #fbfaf7;
-    --surface: #ffffff;
-    --ink: #1c1f24;
-    --muted: #5d636d;
-    --line: #e4e1da;
-    --accent: #1f5f5b;
-    --accent-soft: #e6efed;
-    --serif: "Source Serif 4", Georgia, serif;
-    --sans: "Inter", system-ui, -apple-system, sans-serif;
-  }
-  /* Dark mode colors (used when the visitor's computer is in dark mode) */
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #15171a;
-      --surface: #1c1f23;
-      --ink: #e9e7e2;
-      --muted: #a2a7ae;
-      --line: #2e3238;
-      --accent: #7cc2b9;
-      --accent-soft: #1f2b2a;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #15171a;
-    --surface: #1c1f23;
-    --ink: #e9e7e2;
-    --muted: #a2a7ae;
-    --line: #2e3238;
-    --accent: #7cc2b9;
-    --accent-soft: #1f2b2a;
+    --bg: #ffffff;
+    --text: #111111;
+    --muted: #666b73;
+    --link: #1a5fb4;
+    --link-hover: #0b3a75;
+    --line: #e6e6e6;
+    --nav-scroll: #eef3f9;
+    --nav-text: #7a8494;
+    --nav-hover: #0b2545;
+    --font: "Lato", "Helvetica Neue", Arial, sans-serif;
+    --size: 17px;
   }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-  /* EDIT HERE: base text size for the whole page (16px is standard) */
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
   body {
     margin: 0;
     background: var(--bg);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.65;
+    color: var(--text);
+    font-family: var(--font);
+    font-weight: 300;
+    font-size: var(--size);
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  em { font-style: italic; }
+  p, li { font-size: 1rem; }
+  strong { font-weight: 700; }
 
-  /* Navigation */
+  /* Links: institutions and external pages */
+  a { color: var(--link); text-decoration: none; font-weight: 400; transition: color .2s; }
+  a:hover { color: var(--link-hover); text-decoration: underline; }
+
+  /* ---------- Menu bar ---------- */
   header.nav {
     position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 92%, transparent);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+    border-bottom: 1px solid transparent;
+    transition: background-color .3s, border-color .3s, box-shadow .3s;
+  }
+  header.nav.scrolled {
+    background: var(--nav-scroll);
+    border-bottom-color: var(--line);
+    box-shadow: 0 2px 10px rgba(11, 37, 69, .06);
   }
   .nav-inner {
-    max-width: 960px; margin: 0 auto; padding: 14px 16px;
+    max-width: 960px; margin: 0 auto; padding: 16px;
     display: flex; align-items: center; justify-content: space-between; gap: 16px;
   }
-  .brand { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--ink); }
-  .brand:hover { text-decoration: none; }
-  .nav-links { display: flex; gap: 22px; font-size: 0.9rem; }
-  .nav-links a { color: var(--muted); }
-  .nav-links a:hover { color: var(--accent); text-decoration: none; }
+  .brand { color: var(--text); font-weight: 400; font-size: 1.1rem; letter-spacing: .02em; }
+  .brand:hover { color: var(--nav-hover); text-decoration: none; }
+  .nav-links { display: flex; gap: 26px; }
+  .nav-links a { color: var(--nav-text); font-weight: 400; font-size: 1rem; transition: color .25s; }
+  .nav-links a:hover { color: var(--nav-hover); text-decoration: none; }
+
   .menu-btn {
-    display: none; background: none; border: 1px solid var(--line); color: var(--ink);
-    border-radius: 6px; padding: 6px 10px; font: inherit; font-size: 0.85rem; cursor: pointer;
+    display: none; background: none; border: 0; padding: 8px; cursor: pointer;
+    width: 40px; height: 40px; position: relative;
   }
+  .menu-btn span {
+    display: block; position: absolute; left: 9px; right: 9px; height: 2px;
+    background: var(--nav-text); border-radius: 2px; transition: background-color .25s, transform .25s, opacity .25s;
+  }
+  .menu-btn span:nth-child(1) { top: 12px; }
+  .menu-btn span:nth-child(2) { top: 19px; }
+  .menu-btn span:nth-child(3) { top: 26px; }
+  .menu-btn:hover span { background: var(--nav-hover); }
+  .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   main { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 
-  /* Hero */
+  /* ---------- Introduction ---------- */
   .hero {
-    display: grid; grid-template-columns: 1fr 220px; gap: 48px; align-items: center;
-    padding: 72px 0 56px; border-bottom: 1px solid var(--line);
+    display: grid; grid-template-columns: 1fr 240px; gap: 56px; align-items: start;
+    padding: 64px 0 56px; border-bottom: 1px solid var(--line);
   }
-  .kicker { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 12px; }
-  /* EDIT HERE: sizes of your name (h1), the intro text (.lead), section titles (h2) and item titles (h3) */
-  h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.1; margin: 0 0 20px; }
-  .lead { font-family: var(--serif); font-size: 1.2rem; line-height: 1.6; margin: 0 0 20px; }
-  .status { color: var(--muted); font-size: 0.95rem; margin: 0 0 28px; }
-  .status strong { color: var(--ink); font-weight: 600; }
-  .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn {
-    display: inline-block; padding: 10px 18px; border-radius: 6px; font-size: 0.92rem; font-weight: 500;
-    border: 1px solid var(--accent);
-  }
-  .btn.primary { background: var(--accent); color: var(--bg); }
-  .btn.secondary { color: var(--accent); }
-  .btn:hover { text-decoration: none; opacity: 0.88; }
+  /* EDIT HERE: size of your name */
+  h1 { font-weight: 300; font-size: clamp(2.2rem, 5vw, 3rem); line-height: 1.15; margin: 0 0 6px; letter-spacing: .01em; }
+  .subtitle { color: var(--muted); margin: 0 0 28px; }
+  .hero p { margin: 0 0 16px; max-width: 62ch; }
 
-  /* EDIT HERE: photo size (width and height must match) */
+  /* EDIT HERE: photo size and shape (rectangle, portrait) */
   .photo {
-    position: relative; width: 220px; height: 220px; border-radius: 50%; overflow: hidden;
-    background: var(--accent-soft); border: 1px solid var(--line);
+    width: 240px; aspect-ratio: 4 / 5; border-radius: 4px; overflow: hidden;
+    background: #f1f3f6; border: 1px solid var(--line); position: relative;
   }
   .photo .initials {
     position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 3.4rem; color: var(--accent);
+    font-size: 3rem; font-weight: 300; color: var(--muted);
   }
   .photo img { position: relative; width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  /* Sections */
-  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+  .contact { list-style: none; padding: 0; margin: 18px 0 0; }
+  .contact li { padding: 3px 0; overflow-wrap: anywhere; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 52px 0; border-bottom: 1px solid var(--line); }
   section:last-of-type { border-bottom: none; }
-  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
-  .numeral { font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 1.1rem; min-width: 28px; }
-  h2 { font-family: var(--serif); font-weight: 600; font-size: 1.7rem; margin: 0; }
-  h3 { font-family: var(--serif); font-weight: 600; font-size: 1.2rem; line-height: 1.35; margin: 0 0 6px; }
-  .prose p { margin: 0 0 16px; max-width: 70ch; }
+  /* EDIT HERE: size of section titles (h2) and item titles (h3) */
+  h2 { font-weight: 300; font-size: 1.8rem; margin: 0 0 26px; letter-spacing: .01em; }
+  h3 { font-weight: 700; font-size: 1.05rem; line-height: 1.45; margin: 0 0 4px; }
+  h4 { font-weight: 700; font-size: 1rem; margin: 32px 0 10px; }
+  h4:first-of-type { margin-top: 0; }
 
-  .interests { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .card {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px;
-  }
-  .card .num { font-size: 0.78rem; color: var(--accent); font-weight: 600; letter-spacing: 0.08em; }
-  .card p { margin: 6px 0 0; color: var(--muted); font-size: 0.95rem; }
+  .interests { margin: 0; padding-left: 1.4em; }
+  .interests li { padding: 3px 0; }
 
-  .item { padding: 0 0 28px; margin-bottom: 28px; border-bottom: 1px dashed var(--line); }
-  .item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .tag {
-    display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
-    font-weight: 600; color: var(--accent); background: var(--accent-soft);
-    padding: 3px 9px; border-radius: 4px; margin-bottom: 10px;
-  }
-  .meta { color: var(--muted); font-size: 0.92rem; margin: 0 0 10px; }
-  .item p { margin: 0; max-width: 70ch; }
+  .item { margin-bottom: 30px; }
+  .item:last-child { margin-bottom: 0; }
+  .item p { margin: 0; max-width: 72ch; }
+  .meta { color: var(--muted); }
 
-  .timeline { list-style: none; padding: 0; margin: 0; }
-  .timeline li {
-    display: grid; grid-template-columns: 150px 1fr; gap: 20px;
-    padding: 14px 0; border-bottom: 1px solid var(--line);
-  }
-  .timeline li:last-child { border-bottom: none; }
-  .timeline .when { color: var(--muted); font-size: 0.9rem; padding-top: 2px; }
-  .timeline .what strong { font-weight: 600; }
-  .timeline .what span { display: block; color: var(--muted); font-size: 0.92rem; }
-  .subhead { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 32px 0 6px; }
-  .subhead:first-of-type { margin-top: 0; }
+  /* Compact CV lines: year on the left, details on the right */
+  .cv-list { list-style: none; padding: 0; margin: 0; }
+  .cv-list li { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 6px 0; }
+  .cv-list .when { color: var(--muted); }
 
-  .contact-list { list-style: none; padding: 0; margin: 20px 0 0; }
-  .contact-list li { display: grid; grid-template-columns: 110px 1fr; padding: 10px 0; border-bottom: 1px solid var(--line); }
-  .contact-list li:last-child { border-bottom: none; }
-  .contact-list .label { color: var(--muted); font-size: 0.9rem; }
+  .cv-download { margin-top: 34px; }
 
-  footer { max-width: 960px; margin: 0 auto; padding: 32px 16px 48px; color: var(--muted); font-size: 0.85rem; }
+  footer { max-width: 960px; margin: 0 auto; padding: 28px 16px 48px; color: var(--muted); }
 
+  /* ---------- Phones and small screens ---------- */
   @media (max-width: 760px) {
+    .menu-btn { display: block; }
     .nav-links {
       display: none; position: absolute; top: 100%; left: 0; right: 0;
-      flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line);
-      padding: 8px 16px;
+      flex-direction: column; gap: 0; padding: 8px 16px 14px;
+      background: var(--nav-scroll); border-bottom: 1px solid var(--line);
     }
     .nav-links.open { display: flex; }
     .nav-links a { padding: 10px 0; }
-    .menu-btn { display: block; }
-    .hero { grid-template-columns: 1fr; gap: 28px; padding: 40px 0; }
-    .photo { order: -1; width: 140px; height: 140px; }
-    .photo .initials { font-size: 2.4rem; }
-    .interests { grid-template-columns: 1fr; }
-    .timeline li { grid-template-columns: 1fr; gap: 2px; }
-    .contact-list li { grid-template-columns: 1fr; gap: 2px; }
+    .hero { grid-template-columns: 1fr; gap: 28px; padding: 36px 0 44px; }
+    .side { order: -1; }
+    .photo { width: 170px; }
+    .cv-list li { grid-template-columns: 1fr; gap: 0; padding: 8px 0; }
   }
 </style>
 </head>
 <body>
 
-<header class="nav">
+<header class="nav" id="nav">
   <div class="nav-inner">
     <a class="brand" href="#top">Carlos Salgado García</a>
-    <button class="menu-btn" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
     <nav class="nav-links" id="nav-links">
-      <a href="#about">About</a>
+      <a href="#top">About</a>
       <a href="#interests">Interests</a>
+      <a href="#data-policy">Data &amp; Policy</a>
       <a href="#research">Research</a>
-      <a href="#policy">Policy work</a>
-      <a href="#experience">Experience</a>
-      <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
-      <a href="#contact">Contact</a>
+      <a href="#cv">CV</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
 
+  <!-- ===================== INTRODUCTION ===================== -->
   <div class="hero">
     <div>
-            <h1>Carlos Salgado García</h1>
-      <p class="lead">
-        I am a Development Economist. Most recently, I was a Pre-doctoral Researcher at the
-        <a href="https://www.taxobservatory.eu" target="_blank" rel="noopener">International Tax Observatory</a>
-        at the <a href="https://www.parisschoolofeconomics.eu" target="_blank" rel="noopener">Paris School of Economics</a>. 
-        Before that, I was a Consultant Economist with the <a href="https://www.undp.org/" target="_blank" rel="noopener">United Nations Development Programme</a> in Honduras,
-        where I coordinated the Tax for SDGs Initiative. 
-    
-      
+      <h1>Carlos Salgado García</h1>
+      <p class="subtitle">Development Economist · Public Finance · Taxation · Inequality</p>
+      <p>
+        I am a Honduran development economist working on public finance, taxation and inequality,
+        with a focus on Latin America. Most recently, I was a Pre-doctoral Researcher at the
+        <a href="https://taxobservatory.world" target="_blank" rel="noopener">International Tax Observatory</a>
+        at the <a href="https://www.parisschoolofeconomics.eu" target="_blank" rel="noopener">Paris School of Economics</a>,
+        where I worked on cross-country effective tax rates and on the taxation of high-net-worth
+        individuals in Latin America. Before that, I was a Consultant Economist with the
+        <a href="https://www.undp.org/honduras" target="_blank" rel="noopener">United Nations Development Programme</a>
+        in Honduras, where I coordinated the Tax for SDGs Initiative with the national tax authority.
+        I hold a research Master's in Development Economics from
+        <a href="https://www.pantheonsorbonne.fr" target="_blank" rel="noopener">Université Paris 1 Panthéon-Sorbonne</a>.
+        Before turning to economics, I worked as a Financial Analyst at
+        <a href="https://www.davivienda.com.hn" target="_blank" rel="noopener">Banco Davivienda</a>.
+      </p>
     </div>
-    <div class="photo">
-      <div class="initials">CS</div>
-      <!-- Your photo: save it as img/profile.jpg next to this file -->
-      <img src="img/profile.jpg" alt="Carlos Salgado García" onerror="this.remove()">
+
+    <div class="side">
+      <div class="photo">
+        <div class="initials">CS</div>
+        <!-- Your photo: save it as img/profile.jpg in the website folder -->
+        <img src="img/profile.jpg" alt="Carlos Salgado García" onerror="this.remove()">
+      </div>
+      <ul class="contact">
+        <li><a href="mailto:csalgado1291@hotmail.com">csalgado1291@hotmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/carlossalgadohn/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/carlossalgadoecon" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="cv.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+      </ul>
     </div>
   </div>
 
-  <section id="about">
-    <div class="section-head"><span class="numeral">I</span><h2>About</h2></div>
-    <div class="prose">
-      <p>
-        I am a Honduran economist based in France. From 2024 to 2026 I was a pre-doctoral researcher
-        at the <a href="https://www.taxobservatory.eu" target="_blank" rel="noopener">International Tax Observatory</a>
-        at the <a href="https://www.parisschoolofeconomics.eu" target="_blank" rel="noopener">Paris School of Economics</a>, 
-        where I built and harmonized cross-country data on effective tax rates and worked on policy research on the
-        taxation of high-net-worth individuals in Latin America.
-      </p>
-      <p>
-        Before that, I worked as a consultant economist with the United Nations Development Programme
-        in Honduras, coordinating the Tax for SDGs Initiative with the national tax authority and
-        working on sovereign debt management with the Ministry of Finance. I started my career as a
-        financial analyst at Banco Davivienda, where four years of risk analysis on multinational and
-        local firms first got me interested in how firms respond to tax and policy environments.
-      </p>
-      <p>
-        I hold a research-track Master's in Development Economics from Université Paris 1
-        Panthéon-Sorbonne and a Bachelor's in Finance from Universidad Católica de Honduras.
-        I work in Spanish, English and French.
-      </p>
-    </div>
-  </section>
-
+  <!-- ===================== INTERESTS ===================== -->
   <section id="interests">
-    <div class="section-head"><span class="numeral">II</span><h2>Interests</h2></div>
-    <div class="interests">
-      <div class="card">
-        <span class="num">01</span>
-        <h3>Public finance and taxation</h3>
-        <p>Effective tax rates, tax enforcement and the capacity of tax administrations to collect revenue.</p>
-      </div>
-      <div class="card">
-        <span class="num">02</span>
-        <h3>Political economy of institutions</h3>
-        <p>How institutions and political connections shape tax policy and its enforcement.</p>
-      </div>
-      <div class="card">
-        <span class="num">03</span>
-        <h3>Inequality and distribution</h3>
-        <p>Who bears the tax burden, and how tax design can correct or reinforce income and wealth inequality.</p>
-      </div>
-      <div class="card">
-        <span class="num">04</span>
-        <h3>International taxation</h3>
-        <p>Minimum taxation, cross-border tax planning and international coordination on progressive taxation.</p>
-      </div>
-    </div>
+    <h2>Interests</h2>
+    <ol class="interests">
+      <li>Public finance and international taxation</li>
+      <li>Political economy of institutions</li>
+      <li>Inequality and distribution</li>
+    </ol>
   </section>
 
-  <section id="research">
-    <div class="section-head"><span class="numeral">III</span><h2>Research</h2></div>
+  <!-- ===================== DATA & POLICY ===================== -->
+  <section id="data-policy">
+    <h2>Data &amp; Policy</h2>
 
     <div class="item">
-      <span class="tag">Database · 2026</span>
-      <h3>Atlas of the Offshore World: Effective Tax Rates on Labor, Capital and Corporations</h3>
-      <p class="meta">With Pierre Bachas</p>
+      <h3><a href="https://atlas-offshore-world.org/dataset/effective-tax" target="_blank" rel="noopener">Atlas of the Offshore World: Effective Tax Rates on Labor, Capital and Corporations</a></h3>
+      <p class="meta">With Pierre Bachas · Database · 2026</p>
       <p>
         A cross-country database of effective tax rates for more than 150 countries from 1965 to 2023.
-        I harmonized records from the OECD, the IMF, the ICTD, the World Inequality Database and national
-        tax authorities into a consistent series that allows tax systems to be compared across regions
-        and levels of development.
+        I harmonized records from the, OECD, IMF, ICTD, World Inequality Database
+        and national tax authorities into consistent series that allow tax systems to be compared
+        across regions and levels of development.
       </p>
     </div>
 
     <div class="item">
-      <span class="tag">Policy report · 2026</span>
-      <h3>Progressive Taxation and Inequality: Minimum Taxation of High-Net-Worth Individuals in Latin America and the Caribbean</h3>
-      <p class="meta">With V. Silva, Q. Parrinello, C. Durrer, J. Vergara and G. Zucman</p>
+      <h3><a href="https://taxobservatory.world/publication/progressive-taxation-and-inequality-minimum-taxation-of-high-net-worth-individuals-in-latin-america-and-the-caribbean/" target="_blank" rel="noopener">Progressive Taxation and Inequality: Minimum Taxation of High-Net-Worth Individuals in Latin America and the Caribbean</a></h3>
+      <p class="meta">With Vicente Silva, Quentin Parrinello, Lamia Oualalou, Carmen Durrer de La Sota, Juan Vergara and Gabriel Zucman · Policy report · 2026</p>
       <p>
-        An empirical assessment of minimum wealth taxation across seven Latin American countries.
-        We combine household wealth surveys, administrative fiscal records and tax microsimulation
-        models to estimate the revenue potential and distributional effects of a 2 to 3 percent
-        minimum tax on fortunes above 100 million to 1 billion US dollars.
+        An empirical assessment of minimum wealth taxation in seven Latin American countries. We combine
+        household wealth surveys, administrative fiscal records and tax microsimulation models to estimate
+        the revenue potential and distributional effects of a 2 to 3 percent minimum tax on fortunes above
+        100 million to 1 billion US dollars.
       </p>
     </div>
 
     <div class="item">
-      <span class="tag">Master's dissertation · 2021</span>
+      <h3><a href="https://sdgfinance.undp.org/our-services/public-finance/tax" target="_blank" rel="noopener">Tax for SDGs Initiative</a></h3>
+      <p class="meta">United Nations Development Programme, Honduras · Policy work · 2024</p>
+      <p>
+        The Tax for SDGs Initiative supports developing countries in mobilizing domestic revenue and using
+        tax policy to advance the Sustainable Development Goals. In Honduras, I coordinated the initiative
+        with the national tax authority (SAR) and the Ministry of Finance, including the
+        <a href="https://sdgfinance.undp.org/news-events/sdgs-taxation-framework-stf-honduras-spanish" target="_blank" rel="noopener">SDGs Taxation Framework working sessions</a>
+        with government officials. I also worked on sovereign debt management, looking at how fiscal
+        governance and tax administration capacity relate to a country's access to international
+        financial markets.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== RESEARCH ===================== -->
+  <section id="research">
+    <h2>Research</h2>
+
+    <div class="item">
       <h3>Do U.S. Presidential Elections Have an Impact on Deportation Patterns?</h3>
-      <p class="meta">Université Paris 1 Panthéon-Sorbonne</p>
-    </div>
-  </section>
-
-  <section id="policy">
-    <div class="section-head"><span class="numeral">IV</span><h2>Policy work</h2></div>
-
-    <div class="item">
-      <span class="tag">UNDP Honduras · 2024</span>
-      <h3>Tax for SDGs Initiative and sovereign debt management</h3>
+      <p class="meta">Master's thesis · <a href="https://www.pantheonsorbonne.fr" target="_blank" rel="noopener">Université Paris 1 Panthéon-Sorbonne</a> · 2021</p>
+      <!-- THESIS PDF: when files/thesis.pdf is uploaded, delete the two lines marked "delete" below -->
+      <!-- delete
+      <p class="meta"><a href="files/thesis.pdf" target="_blank" rel="noopener">PDF</a></p>
+      delete -->
       <p>
-        I coordinated the Tax for SDGs Initiative with the Honduran tax authority (SAR) to strengthen
-        institutional capacity for revenue collection, and worked with the Ministry of Finance on
-        sovereign debt management, looking at how fiscal governance and tax administration capacity
-        relate to a country's access to international financial markets.
-      </p>
-    </div>
-
-    <div class="item">
-      <span class="tag">Engagements</span>
-      <h3>Conferences and policy forums</h3>
-      <p>
-        World Inequality Conference (PSE, 2026), Taxing Billionaires International Conference (PSE, 2025),
-        Economics of Taxation Workshop (University of Barcelona, 2025), EU Tax Policies for Tomorrow
-        (Belgium, 2025) and the Paris Peace Forum (2019).
+        Using a state-level panel for 2004 to 2019 with time fixed effects, I study whether vote shares in
+        the 2004, 2008, 2012 and 2016 U.S. presidential elections are associated with the composition of
+        deportations. A higher Democratic vote share is associated with a lower share of criminal,
+        non-conviction and total deportations, while a higher Republican vote share is associated with
+        an increase in all three.
       </p>
     </div>
   </section>
 
-  <section id="experience">
-    <div class="section-head"><span class="numeral">V</span><h2>Experience and education</h2></div>
+  <!-- ===================== CV ===================== -->
+  <section id="cv">
+    <h2>CV</h2>
 
-    <p class="subhead">Experience</p>
-    <ul class="timeline">
-      <li><span class="when">2024 to 2026</span><span class="what"><strong>Pre-doctoral researcher</strong><span>International Tax Observatory, Paris School of Economics</span></span></li>
-      <li><span class="when">2024</span><span class="what"><strong>Consultant economist</strong><span>United Nations Development Programme, Honduras</span></span></li>
-      <li><span class="when">2022</span><span class="what"><strong>Academic assistant</strong><span>Université Paris 1 Panthéon-Sorbonne</span></span></li>
-      <li><span class="when">2021 to 2022</span><span class="what"><strong>Research assistant</strong><span>Paris School of Economics</span></span></li>
-      <li><span class="when">2015 to 2019</span><span class="what"><strong>Junior financial analyst</strong><span>Banco Davivienda, Honduras</span></span></li>
+    <h4>Experience</h4>
+    <ul class="cv-list">
+      <li><span class="when">2024 – 2026</span><span>Pre-doctoral Researcher, <a href="https://taxobservatory.world" target="_blank" rel="noopener">International Tax Observatory</a>, <a href="https://www.parisschoolofeconomics.eu" target="_blank" rel="noopener">Paris School of Economics</a></span></li>
+      <li><span class="when">2024</span><span>Consultant Economist, <a href="https://www.undp.org/honduras" target="_blank" rel="noopener">United Nations Development Programme</a>, Honduras</span></li>
+      <li><span class="when">2022</span><span>Academic Assistant, <a href="https://www.pantheonsorbonne.fr" target="_blank" rel="noopener">Université Paris 1 Panthéon-Sorbonne</a></span></li>
+      <li><span class="when">2021 – 2022</span><span>Research Assistant, <a href="https://www.parisschoolofeconomics.eu" target="_blank" rel="noopener">Paris School of Economics</a></span></li>
+      <li><span class="when">2021 & 2024</span><span>Consulting Member for the Human Development Report, <a href="https://www.undp.org/honduras" target="_blank" rel="noopener">United Nations Development Programme</a>, Honduras</span></li>
+      <li><span class="when">2015 – 2019</span><span>Junior Financial Analyst, <a href="https://www.davivienda.com.hn" target="_blank" rel="noopener">Banco Davivienda</a>, Honduras</span></li>
     </ul>
 
-    <p class="subhead">Education</p>
-    <ul class="timeline">
-      <li><span class="when">2019 to 2021</span><span class="what"><strong>Master in Development Economics, research track</strong><span>Université Paris 1 Panthéon-Sorbonne</span></span></li>
-      <li><span class="when">2009 to 2014</span><span class="what"><strong>Bachelor's in Finance</strong><span>Universidad Católica de Honduras</span></span></li>
+    <h4>Education</h4>
+    <ul class="cv-list">
+      <li><span class="when">2019 – 2021</span><span>Master in Development Economics, Research Track, <a href="https://www.pantheonsorbonne.fr" target="_blank" rel="noopener">Université Paris 1 Panthéon-Sorbonne</a></span></li>
+      <li><span class="when">2009 – 2014</span><span>Bachelor's Degree in Finance, <a href="https://www.unicah.edu" target="_blank" rel="noopener">Universidad Católica de Honduras</a></span></li>
     </ul>
-  </section>
 
-  <section id="contact">
-    <div class="section-head"><span class="numeral">VI</span><h2>Contact</h2></div>
-    <div class="prose">
-      <p>
-        I am happy to talk about research collaborations and research or policy roles in public
-        finance and taxation. The best way to reach me is by email.
-      </p>
-    </div>
-    <ul class="contact-list">
-      <li><span class="label">Email</span><a href="mailto:YOUR.EMAIL@example.com">YOUR.EMAIL@example.com</a></li>
-      <li><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/YOUR-PROFILE" target="_blank" rel="noopener">linkedin.com/in/YOUR-PROFILE</a></li>
-      <li><span class="label">GitHub</span><a href="https://github.com/ce-salgado" target="_blank" rel="noopener">github.com/ce-salgado</a></li>
+    <h4>Awards</h4>
+    <ul class="cv-list">
+      <li><span class="when">2019 – 2021</span><span>Central American Excellence Scholarship, <a href="https://www.campusfrance.org" target="_blank" rel="noopener">Campus France</a>, Government of France</span></li>
+      <li><span class="when">2019 – 2021</span><span>International Academic Excellence Scholarship, Government of Honduras</span></li>
     </ul>
+
+    <h4>Skills</h4>
+    <ul class="cv-list">
+      <li><span class="when">Programming</span><span>Stata, R, Python, LaTeX, GitHub, QGIS</span></li>
+      <li><span class="when">Methods</span><span>Panel data, fixed effects, difference-in-differences, event studies, RDD, synthetic control</span></li>
+      <li><span class="when">Languages</span><span>Spanish (native), English (fluent), French (advanced)</span></li>
+    </ul>
+
+    <p class="cv-download"><a href="cv.pdf" target="_blank" rel="noopener">Download full CV (PDF)</a></p>
   </section>
 
 </main>
@@ -374,6 +332,13 @@
 <footer>© 2026 Carlos Salgado García</footer>
 
 <script>
+  // Menu bar changes color after scrolling down
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Three-line menu button on phones
   const btn = document.querySelector('.menu-btn');
   const links = document.getElementById('nav-links');
   btn.addEventListener('click', () => {
