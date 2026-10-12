@@ -160,6 +160,12 @@
   .item { margin-bottom: 26px; }
   .item:last-child { margin-bottom: 0; }
   .item p { margin: 0; }
+  .item h3 a::after { content: " \2197"; font-size: 0.85em; }
+  .item h3 a[href$=".pdf"]::after {
+    content: "PDF"; font-size: 0.7em; font-weight: 600; letter-spacing: .04em;
+    margin-left: 6px; padding: 1px 5px; border: 1px solid currentColor;
+    border-radius: 3px; vertical-align: 2px;
+  }
   .item .meta { font-style: italic; color: var(--muted); }
   .item .desc { margin-top: 4px; }
 
@@ -323,11 +329,8 @@
 
     <h4>Master's thesis</h4>
     <div class="item">
-      <h3>Do U.S. Presidential Elections Shape Deportation Patterns? Evidence from State-Level Panel Data, 2004–2019</h3>
-      <p class="meta"><a href="https://www.pantheonsorbonne.fr" target="_blank" rel="noopener">Université Paris 1 Panthéon-Sorbonne</a> · 2021</p>
-      <!-- THESIS PDF: when mastersthesis-Salgado-Carlos.pdf is uploaded, delete the two lines marked "delete" below -->
-      
-      <p class="meta"><a href="mastersthesis-Salgado-Carlos.pdf" target="_blank" rel="noopener">PDF</a></p>
+      <h3><a href="mastersthesis-Salgado-Carlos.pdf" target="_blank" rel="noopener">Do U.S. Presidential Elections Shape Deportation Patterns? Evidence from State-Level Panel Data, 2004–2019</a></h3>
+      <p class="meta"><a href="https://www.pantheonsorbonne.fr" target="_blank" rel="noopener">Université Paris 1 Panthéon-Sorbonne</a> · 2021 </p>
     
       <p class="desc">
         Using a panel of 50 U.S. states from 2004 to 2019 with state and year fixed effects, I study
