@@ -171,8 +171,10 @@
 
   /* Compact CV lines: year on the left, institution then position */
   .cv-list { list-style: none; padding: 0; margin: 0; }
-  .cv-list li { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 5px 0; }
-  .cv-list .when { color: var(--text); font-weight: 700; }
+  .cv-list li { display: flex; align-items: baseline; gap: 16px; padding: 5px 0; }
+  .cv-list .when { order: 2; margin-left: auto; white-space: nowrap; text-align: right; }
+  .cv-list .label { flex: 0 0 130px; }
+  .cv-list .when { color: var(--muted); }
   .cv-list .label { font-weight: 700; }
 
   footer { max-width: 960px; margin: 0 auto; padding: 24px 16px 44px; color: var(--muted); }
@@ -193,7 +195,10 @@
     .side { order: -1; }
     .photo { width: 160px; }
     .prose p, .item p.desc { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
-    .cv-list li { grid-template-columns: 1fr; gap: 0; padding: 8px 0; }
+    .cv-list li { gap: 12px; padding: 7px 0; }
+    .cv-list .when { font-size: 0.9em; }
+    .cv-list li:has(.label) { flex-wrap: wrap; gap: 0 12px; }
+    .cv-list .label { flex-basis: 100%; }
   }
 </style>
 </head>
