@@ -1,4 +1,6 @@
 <!doctype html>
+<!-- ENGLISH VERSION of the website. The Spanish version is es/index.html.
+     When you change the content of one page, make the same change in the other. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -10,7 +12,12 @@
 <meta property="og:description" content="Development economist working on public economics, taxation and inequality.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://carlossalgadoecon.github.io/">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://carlossalgadoecon.github.io/img/profile.jpg">
+<!-- Language versions: English (this page) and Spanish (es/index.html) -->
+<link rel="alternate" hreflang="en" href="https://carlossalgadoecon.github.io/">
+<link rel="alternate" hreflang="es" href="https://carlossalgadoecon.github.io/es/">
+<link rel="alternate" hreflang="x-default" href="https://carlossalgadoecon.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- EDIT HERE (1 of 2): font. Choose a font at fonts.google.com, click "Get embed code", paste the new link here -->
@@ -92,7 +99,17 @@
   .brand a { color: var(--text); }
   .brand a:hover { color: var(--nav-hover); text-decoration: none; }
 
-  .nav-links { display: flex; gap: 26px; }
+  .nav-links { display: flex; gap: 26px; margin-left: auto; }
+
+  /* Language switch EN | ES in the menu bar */
+  .lang {
+    display: flex; align-items: center; gap: 6px; font-weight: 600; color: var(--nav-text);
+    padding-left: 18px; border-left: 1px solid var(--line);
+  }
+  .lang a { color: var(--nav-text); }
+  .lang a:hover { color: var(--nav-hover); text-decoration: none; }
+  .lang .current { color: var(--nav-hover); }
+  .lang .sep { font-weight: 400; opacity: .6; }
   .nav-links a {
     color: var(--nav-text); font-weight: 600; padding: 4px 0;
     border-bottom: 2px solid transparent; transition: color .25s, border-color .25s;
@@ -184,6 +201,8 @@
   @media (max-width: 760px) {
     :root { --size-name: 19px; }
     .menu-btn { display: block; }
+    .lang { margin-left: auto; padding-left: 0; border-left: 0; order: 2; }
+    .menu-btn { order: 3; margin-right: -8px; }
     .nav-links {
       display: none; position: absolute; top: 100%; left: 0; right: 0;
       flex-direction: column; gap: 0; padding: 6px 16px 12px;
@@ -216,6 +235,10 @@
       <a href="#research">Research &amp; Policy</a>
       <a href="#cv">CV</a>
     </nav>
+    <!-- Language switch: links to the Spanish version in the es folder -->
+    <div class="lang">
+      <span class="current">EN</span><span class="sep">|</span><a href="es/" hreflang="es" lang="es">ES</a>
+    </div>
   </div>
 </header>
 
@@ -224,7 +247,7 @@
   <!-- ===================== ABOUT ===================== -->
   <div class="hero" id="about">
     <div class="prose">
-      <p class="fields">Development Economics· Public Economics · Taxation · Inequality</p>
+      <p class="fields">Development Economics · Public Economics · Taxation · Inequality</p>
       <p>
         I am a Development Economist working on public economics, taxation and inequality. Most recently, I was a Pre-doctoral Researcher at the
         <a href="https://taxobservatory.world" target="_blank" rel="noopener">International Tax Observatory</a>
@@ -243,7 +266,7 @@
         </p>
         <p>
         Feel free to reach out via email or LinkedIn if you have any questions or would like to discuss topics of shared interest.
-      
+      </p>
     </div>
 
     <div class="side">
@@ -295,7 +318,7 @@
         the richest 1% pay around 22%, and the richest 0.01% pay as little as 20% in Brazil and 11% in Chile. After evaluating several reform 
         options, we find that a minimum wealth tax, a floor that charges the difference when taxes already paid fall below a threshold, is
         the most effective instrument. For Argentina, Brazil, Chile, Colombia, Mexico, Peru and Uruguay, a 2% minimum tax on fortunes 
-        above USD 100 million would raise about USD 24 billion a year (0.6% of GDP), and a 3% rate about USD 36 billion (0.9% of GDP)
+        above USD 100 million would raise about USD 24 billion a year (0.6% of GDP), and a 3% rate about USD 36 billion (0.9% of GDP).
       </p>
     </div>
 
@@ -329,7 +352,7 @@
         with government officials. I also worked on sovereign debt management and contributed to the
         preparation of
         <a href="https://www.undp.org/es/honduras/historias/hito-honduras-emite-su-primer-bono-soberano-sostenible" target="_blank" rel="noopener">Honduras's first sustainable sovereign bond</a>,
-        issued in November 2024 for USD 700 million, looking at how fiscal governance capacity relate to a country's access to international financial markets.
+        issued in November 2024 for USD 700 million, looking at how fiscal governance capacity relates to a country's access to international financial markets.
       </p>
     </div>
 

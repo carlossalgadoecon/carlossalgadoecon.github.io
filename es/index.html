@@ -1,0 +1,465 @@
+<!doctype html>
+<!-- SPANISH VERSION of the website. The English version is ../index.html.
+     When you change the content of one page, make the same change in the other.
+     Each block below has a comment with the name of the matching block in English. -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carlos Salgado García</title>
+<meta name="description" content="Carlos Salgado García, economista del desarrollo que trabaja en economía pública, tributación y desigualdad.">
+<!-- Preview shown when the link is shared on LinkedIn, WhatsApp, etc. -->
+<meta property="og:title" content="Carlos Salgado García">
+<meta property="og:description" content="Economista del desarrollo que trabaja en economía pública, tributación y desigualdad.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://carlossalgadoecon.github.io/es/">
+<meta property="og:locale" content="es_LA">
+<meta property="og:image" content="https://carlossalgadoecon.github.io/img/profile.jpg">
+<!-- Language versions: English (../index.html) and Spanish (this page) -->
+<link rel="alternate" hreflang="en" href="https://carlossalgadoecon.github.io/">
+<link rel="alternate" hreflang="es" href="https://carlossalgadoecon.github.io/es/">
+<link rel="alternate" hreflang="x-default" href="https://carlossalgadoecon.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- EDIT HERE (1 of 2): font. Choose a font at fonts.google.com, click "Get embed code", paste the new link here -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  /* =========================================================
+     EDIT HERE: colors, font and sizes for the whole site
+     Colors are hex codes. Pick new ones at htmlcolorcodes.com
+     --text        main text (black)
+     --muted       grey text (years, places)
+     --link        blue for institutions and links
+     --link-hover  darker blue when the mouse is over a link
+     --line        thin divider lines
+     --nav-bg      menu bar color at the top of the page
+     --nav-scroll  menu bar color after scrolling down
+     --nav-text    menu items (light)
+     --nav-hover   menu items under the mouse or active (dark)
+     --font        EDIT HERE (2 of 2): font name, must match the link above
+     --size        body text (16px looks like 12pt in Word)
+     --size-title  section titles (21px looks like 16pt in Word)
+     ========================================================= */
+  :root {
+    --bg: #ffffff;
+    --text: #111111;
+    --muted: #5f6670;
+    --link: #1a5fb4;
+    --link-hover: #0b3a75;
+    --line: #e3e6ea;
+    --nav-bg: #ffffff;
+    --nav-scroll: #eef3f9;
+    --nav-text: #7a8494;
+    --nav-hover: #0b2545;
+    --font: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+    --size: 16px;
+    --size-title: 21px;
+    --size-name: 22px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: var(--size);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  strong { font-weight: 700; }
+
+  /* Links: institutions and external pages */
+  a { color: var(--link); text-decoration: none; transition: color .2s; }
+  a:hover { color: var(--link-hover); text-decoration: underline; }
+
+  /* Paragraphs: justified on computers (left-aligned on phones, see bottom) */
+  .prose p, .item p.desc {
+    text-align: justify; hyphens: auto; -webkit-hyphens: auto;
+  }
+
+  /* ---------- Menu bar ---------- */
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--line);
+    transition: background-color .3s, box-shadow .3s;
+  }
+  header.nav.scrolled {
+    background: var(--nav-scroll);
+    box-shadow: 0 2px 10px rgba(11, 37, 69, .07);
+  }
+  .nav-inner {
+    max-width: 960px; margin: 0 auto; padding: 14px 16px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  /* Your name in the bar (main title of the page) */
+  .brand { margin: 0; font-size: var(--size-name); font-weight: 600; line-height: 1.2; }
+  .brand a { color: var(--text); }
+  .brand a:hover { color: var(--nav-hover); text-decoration: none; }
+
+  .nav-links { display: flex; gap: 26px; margin-left: auto; }
+
+  /* Language switch EN | ES in the menu bar */
+  .lang {
+    display: flex; align-items: center; gap: 6px; font-weight: 600; color: var(--nav-text);
+    padding-left: 18px; border-left: 1px solid var(--line);
+  }
+  .lang a { color: var(--nav-text); }
+  .lang a:hover { color: var(--nav-hover); text-decoration: none; }
+  .lang .current { color: var(--nav-hover); }
+  .lang .sep { font-weight: 400; opacity: .6; }
+  .nav-links a {
+    color: var(--nav-text); font-weight: 600; padding: 4px 0;
+    border-bottom: 2px solid transparent; transition: color .25s, border-color .25s;
+  }
+  .nav-links a:hover { color: var(--nav-hover); text-decoration: none; }
+  .nav-links a.active { color: var(--nav-hover); border-bottom-color: var(--nav-hover); }
+
+  .menu-btn {
+    display: none; background: none; border: 0; padding: 8px; cursor: pointer;
+    width: 40px; height: 40px; position: relative; flex-shrink: 0;
+  }
+  .menu-btn span {
+    display: block; position: absolute; left: 9px; right: 9px; height: 2px;
+    background: var(--nav-text); border-radius: 2px; transition: background-color .25s, transform .25s, opacity .25s;
+  }
+  .menu-btn span:nth-child(1) { top: 12px; }
+  .menu-btn span:nth-child(2) { top: 19px; }
+  .menu-btn span:nth-child(3) { top: 26px; }
+  .menu-btn:hover span { background: var(--nav-hover); }
+  .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  main { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+  /* ---------- About ---------- */
+  .hero {
+    display: grid; grid-template-columns: 1fr 260px; gap: 48px; align-items: start;
+    padding: 56px 0 52px; border-bottom: 1px solid var(--line);
+  }
+  .hero .prose p { margin: 0 0 14px; }
+  .fields { margin: 22px 0 0; padding-top: 14px; border-top: 1px solid var(--line); font-size: 0.82em; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text); }
+
+  /* EDIT HERE: photo size and shape (rectangle, portrait) */
+  .photo {
+    width: 230px; aspect-ratio: 2 / 3; border-radius: 4px; overflow: hidden;
+    background: #f1f3f6; border: 1px solid var(--line); position: relative;
+  }
+  .photo .initials {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-size: 2.8rem; color: var(--muted);
+  }
+    .photo img { position: relative; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+
+  /* Contact with black-and-white icons that turn blue on hover */
+  .contact-label { font-weight: 700; margin: 18px 0 6px; }
+  .contact { list-style: none; padding: 0; margin: 0; }
+  .contact li { padding: 3px 0; }
+  .contact a {
+    display: inline-flex; align-items: center; gap: 9px; color: var(--text); white-space: nowrap;
+  }
+  .contact svg { width: 18px; height: 18px; flex-shrink: 0; fill: currentColor; }
+  .contact a:hover { color: var(--link); text-decoration: none; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 48px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+  h2 { font-size: var(--size-title); font-weight: 700; margin: 0 0 22px; }
+  h3 { font-size: 1rem; font-weight: 700; line-height: 1.45; margin: 0 0 2px; }
+  h4 {
+    font-size: 1rem; font-weight: 700; color: var(--muted); text-transform: uppercase;
+    letter-spacing: .08em; margin: 32px 0 12px;
+  }
+  section h2 + h4 { margin-top: 0; }
+
+  .item { margin-bottom: 26px; }
+  .item:last-child { margin-bottom: 0; }
+  .item p { margin: 0; }
+  .item h3 a::after { content: " \2197"; font-size: 0.85em; }
+  .item h3 a[href$=".pdf"]::after {
+    content: "PDF"; font-size: 0.7em; font-weight: 600; letter-spacing: .04em;
+    margin-left: 6px; padding: 1px 5px; border: 1px solid currentColor;
+    border-radius: 3px; vertical-align: 2px;
+  }
+  .item .meta { font-style: italic; color: var(--muted); }
+  .item .desc { margin-top: 4px; }
+
+  /* Compact CV lines: year on the left, institution then position */
+  .cv-list { list-style: none; padding: 0; margin: 0; }
+  .cv-list li { display: flex; align-items: baseline; gap: 16px; padding: 5px 0; }
+  .cv-list .when { order: 2; margin-left: auto; white-space: nowrap; text-align: right; }
+  .cv-list .label { flex: 0 0 130px; }
+  .cv-list .when { color: var(--muted); }
+  .cv-list .label { font-weight: 700; }
+
+  footer { max-width: 960px; margin: 0 auto; padding: 24px 16px 44px; color: var(--muted); }
+
+  /* ---------- Phones and small screens ---------- */
+  @media (max-width: 760px) {
+    :root { --size-name: 19px; }
+    .menu-btn { display: block; }
+    .lang { margin-left: auto; padding-left: 0; border-left: 0; order: 2; }
+    .menu-btn { order: 3; margin-right: -8px; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0; padding: 6px 16px 12px;
+      background: var(--nav-scroll); border-bottom: 1px solid var(--line);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 10px 0; border-bottom: 0; }
+    .nav-links a.active { border-bottom: 0; }
+    .hero { grid-template-columns: 1fr; gap: 28px; padding: 32px 0 40px; }
+    .side { order: -1; }
+    .photo { width: 160px; }
+    .prose p, .item p.desc { text-align: left; hyphens: manual; -webkit-hyphens: manual; }
+    .cv-list li { gap: 12px; padding: 7px 0; }
+    .cv-list .when { font-size: 0.9em; }
+    .cv-list li:has(.label) { flex-wrap: wrap; gap: 0 12px; }
+    .cv-list .label { flex-basis: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <h1 class="brand"><a href="#about">Carlos Salgado García</a></h1>
+    <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="nav-links">
+      <a href="#about">Sobre mí</a>
+      <a href="#research">Investigación y políticas</a>
+      <a href="#cv">CV</a>
+    </nav>
+    <!-- Language switch: links back to the English version -->
+    <div class="lang">
+      <a href="../" hreflang="en" lang="en">EN</a><span class="sep">|</span><span class="current">ES</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== ABOUT (Sobre mí) ===================== -->
+  <div class="hero" id="about">
+    <div class="prose">
+      <p class="fields">Economía del Desarrollo · Economía Pública · Tributación · Desigualdad</p>
+      <p>
+        Soy economista del desarrollo y trabajo en economía pública, tributación y desigualdad.
+        Mi experiencia más reciente fue como investigador predoctoral en el
+        <a href="https://taxobservatory.world" target="_blank" rel="noopener">Observatorio Fiscal Internacional</a>
+        de la <a href="https://www.parisschoolofeconomics.eu" target="_blank" rel="noopener">Paris School of Economics</a>,
+        donde trabajé en tasas impositivas efectivas comparadas entre países y en la tributación
+        de las personas de alto patrimonio en América Latina.
+      </p>
+      <p>
+        Mi trayectoria profesional y académica se ha desarrollado entre Honduras y Francia. Antes de
+        incorporarme al Observatorio en París, fui economista consultor del
+        <a href="https://www.undp.org/honduras" target="_blank" rel="noopener">Programa de las Naciones Unidas para el Desarrollo</a>
+        en Honduras, donde coordiné la iniciativa Impuestos para los ODS con la autoridad tributaria nacional.
+      </p>
+      <p>
+        Tengo un máster de investigación en Economía del Desarrollo de la <a href="https://www.pantheonsorbonne.fr" target="_blank" rel="noopener">Université Paris 1 Panthéon-Sorbonne</a>.
+        Antes de mis estudios de máster, trabajé en el sector bancario y financiero en Honduras.
+      </p>
+      <p>
+        Si tiene alguna pregunta o desea conversar sobre temas de interés común, no dude en
+        escribirme por correo electrónico o LinkedIn.
+      </p>
+    </div>
+
+    <div class="side">
+      <div class="photo">
+        <div class="initials">CS</div>
+        <!-- The photo is in the main folder, so the path starts with ../ -->
+        <img src="../img/profile.jpg" alt="Carlos Salgado García" onerror="this.remove()">
+      </div>
+      <p class="contact-label">Contacto</p>
+      <ul class="contact">
+        <li><a href="mailto:carlosesalgadogarcia@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1 2.4V17h16V7.4l-8 5.3-8-5.3zM5.2 7l6.8 4.5L18.8 7H5.2z"/></svg>
+          carlosesalgadogarcia@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/carlossalgadohn/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn</a></li>
+        <li><a href="https://github.com/carlossalgadoecon" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.02c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg>
+          GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===================== RESEARCH & POLICY (Investigación y políticas públicas) ===================== -->
+  <section id="research">
+    <h2>Investigación y políticas públicas</h2>
+
+    <!-- Data -->
+    <h4>Datos</h4>
+    <div class="item">
+      <h3><a href="https://atlas-offshore-world.org/dataset/effective-tax" target="_blank" rel="noopener">Atlas of the Offshore World: Effective Tax Rates on Labor, Capital and Corporations</a></h3>
+      <p class="meta">Con Pierre Bachas · <a href="https://taxobservatory.world" target="_blank" rel="noopener">Observatorio Fiscal Internacional</a>, <a href="https://www.parisschoolofeconomics.eu" target="_blank" rel="noopener">Paris School of Economics</a> · Base de datos · 2026</p>
+      <p class="desc">
+        Una nueva base de datos de tasas impositivas efectivas para más de 150 países entre 1965 y 2023.
+        Es un esfuerzo del <a href="https://taxobservatory.world" target="_blank" rel="noopener">Observatorio Fiscal Internacional</a> y <a href="https://www.nmbu.no/en/research/skatteforsk-tax-center" target="_blank" rel="noopener">Skatteforsk</a>
+        para ofrecer un conjunto coherente y comparable de tasas impositivas efectivas sobre el trabajo, el capital
+        y las empresas, entre países y a lo largo del tiempo. Armonicé registros de la OCDE, el FMI, el ICTD,
+        la World Inequality Database y las autoridades tributarias nacionales en series coherentes que permiten
+        comparar los sistemas tributarios entre regiones y niveles de desarrollo.
+      </p>
+    </div>
+
+    <!-- Policy -->
+    <h4>Políticas públicas</h4>
+    <div class="item">
+      <!-- The report has an official Spanish version: the title and link below point to it -->
+      <h3><a href="https://taxobservatory.world//www-site/uploads/2026/04/PTLAC-ESP-final.pdf" target="_blank" rel="noopener">Progresividad Fiscal y Desigualdad: Tributación Mínima de Individuos de Alto Patrimonio en América Latina y el Caribe</a></h3>
+      <p class="meta">Con Vicente Silva, Quentin Parrinello, Lamia Oualalou, Carmen Durrer de La Sota, Juan Vergara y Gabriel Zucman · <a href="https://taxobservatory.world" target="_blank" rel="noopener">Observatorio Fiscal Internacional</a>, <a href="https://www.parisschoolofeconomics.eu" target="_blank" rel="noopener">Paris School of Economics</a> · Informe de políticas · 2026</p>
+      <p class="desc">
+        Elaborado a solicitud de Brasil durante su presidencia de la Plataforma Regional de Cooperación Tributaria
+        para América Latina y el Caribe (PTLAC), este informe analiza la progresividad de los sistemas tributarios
+        de la región y sus límites para gravar a las personas de muy alto patrimonio. Mostramos que los sistemas
+        tributarios de América Latina son, en general, regresivos: el 50% más pobre paga alrededor del 30% de su
+        ingreso en impuestos, mientras que el 1% más rico paga alrededor del 22%, y el 0.01% más rico paga apenas
+        un 20% en Brasil y un 11% en Chile. Tras evaluar varias opciones de reforma, concluimos que un impuesto
+        mínimo sobre la riqueza, es decir, un piso que cobra la diferencia cuando los impuestos ya pagados quedan
+        por debajo de un umbral, es el instrumento más eficaz. Para Argentina, Brasil, Chile, Colombia, México,
+        Perú y Uruguay, un impuesto mínimo del 2% sobre los patrimonios superiores a USD 100 millones recaudaría
+        alrededor de USD 24 mil millones al año (0.6% del PIB), y una tasa del 3%, alrededor de USD 36 mil millones
+        (0.9% del PIB).
+      </p>
+    </div>
+
+    <div class="item">
+      <h3><a href="https://ataftax.org/library/african-tax-outlook-2025/" target="_blank" rel="noopener">African Tax Outlook 2025, Section 7.2: Effective Tax Rates in Africa</a></h3>
+      <p class="meta">Con Noé Manuel Mendoza · <a href="https://ataftax.org" target="_blank" rel="noopener">Foro Africano de Administración Tributaria</a>, <a href="https://taxobservatory.world" target="_blank" rel="noopener">Observatorio Fiscal Internacional</a> y <a href="https://www.nmbu.no/en/research/skatteforsk-tax-center" target="_blank" rel="noopener">Skatteforsk</a> · Contribución a informe de políticas · 2025</p>
+      <p class="desc">
+        Contribuí a la sección 7.2, “Tasas impositivas efectivas en África”, del African Tax Outlook 2025,
+        la publicación principal del Foro Africano de Administración Tributaria (ATAF), que analiza los ingresos
+        tributarios y no tributarios y los datos de administración tributaria de 39 países africanos. Con datos del
+        <a href="https://atlas-offshore-world.org/dataset/effective-tax" target="_blank" rel="noopener">Atlas of the Offshore World</a>,
+        elaboré los gráficos y escribí en coautoría el análisis de las tasas impositivas efectivas sobre el capital
+        y el trabajo en África y sus cinco subregiones entre 2011 y 2021. La sección muestra que las tasas
+        impositivas efectivas de África están entre las más bajas del mundo y no han mejorado en una década, que las
+        bajas tasas sobre el trabajo reflejan sobre todo la informalidad más que tasas legales bajas, y plantea la
+        necesidad de analizar quién soporta la carga tributaria.
+      </p>
+    </div>
+
+    <div class="item">
+      <h3>Iniciativa Impuestos para los ODS y primer bono soberano sostenible de Honduras</h3>
+      <p class="meta"><a href="https://www.undp.org/honduras" target="_blank" rel="noopener">Programa de las Naciones Unidas para el Desarrollo</a>, Honduras · <a href="https://sdgfinance.undp.org/" target="_blank" rel="noopener">Hub de Finanzas Sostenibles del PNUD</a> · Trabajo de políticas públicas · 2024</p>
+      <p class="desc">
+        Como parte del trabajo del
+        <a href="https://sdgfinance.undp.org/" target="_blank" rel="noopener">Hub de Finanzas Sostenibles</a>
+        del PNUD en Honduras, coordiné la
+        <a href="https://sdgfinance.undp.org/our-services/public-finance/tax" target="_blank" rel="noopener">iniciativa Impuestos para los ODS</a>
+        (Tax for SDGs), que apoya a los países en desarrollo en la movilización de recursos internos y en el uso de
+        la política tributaria para avanzar en los Objetivos de Desarrollo Sostenible, junto con el Servicio de
+        Administración de Rentas (SAR) y la Secretaría de Finanzas (SEFIN), incluidas las
+        <a href="https://sdgfinance.undp.org/news-events/sdgs-taxation-framework-stf-honduras-spanish" target="_blank" rel="noopener">sesiones de trabajo del Marco Tributario para los ODS</a>
+        con funcionarios del Gobierno. También trabajé en la gestión de la deuda soberana y contribuí a la
+        preparación del
+        <a href="https://www.undp.org/es/honduras/historias/hito-honduras-emite-su-primer-bono-soberano-sostenible" target="_blank" rel="noopener">primer bono soberano sostenible de Honduras</a>,
+        emitido en noviembre de 2024 por USD 700 millones, analizando cómo la capacidad de gobernanza fiscal se
+        relaciona con el acceso de un país a los mercados financieros internacionales.
+      </p>
+    </div>
+
+    <!-- Master's thesis (the thesis is in English, so its title stays in English) -->
+    <h4>Tesis de máster</h4>
+    <div class="item">
+      <h3><a href="../mastersthesis-Salgado-Carlos.pdf" target="_blank" rel="noopener">Do U.S. Presidential Elections Shape Deportation Patterns? Evidence from State-Level Panel Data, 2004–2019</a></h3>
+      <p class="meta"><a href="https://www.pantheonsorbonne.fr" target="_blank" rel="noopener">Université Paris 1 Panthéon-Sorbonne</a> · 2021</p>
+      <p class="desc">
+        Con un panel de los 50 estados de EE. UU. entre 2004 y 2019 y efectos fijos por estado y año, estudio
+        si los resultados partidistas de las elecciones presidenciales se asocian con las deportaciones. Los estados
+        donde aumenta el voto demócrata registran menos deportaciones por adulto, mientras que un aumento del voto
+        republicano se asocia con más deportaciones, impulsadas por las de personas sin condena penal. Las
+        asociaciones son significativas al 10% con errores estándar agrupados por estado, y discuto por qué no
+        deben interpretarse como causales.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== CV ===================== -->
+  <section id="cv">
+    <h2>CV</h2>
+
+    <!-- Experience -->
+    <h4>Experiencia</h4>
+    <ul class="cv-list">
+      <li><span class="when">2024 – 2026</span><span><a href="https://taxobservatory.world" target="_blank" rel="noopener">Observatorio Fiscal Internacional</a>, <a href="https://www.parisschoolofeconomics.eu" target="_blank" rel="noopener">Paris School of Economics</a>, Investigador predoctoral</span></li>
+      <li><span class="when">2024</span><span><a href="https://www.undp.org/honduras" target="_blank" rel="noopener">Programa de las Naciones Unidas para el Desarrollo</a>, Honduras, Economista consultor</span></li>
+      <li><span class="when">2022</span><span><a href="https://www.pantheonsorbonne.fr" target="_blank" rel="noopener">Université Paris 1 Panthéon-Sorbonne</a>, Asistente académico</span></li>
+      <li><span class="when">2021 – 2022</span><span><a href="https://www.parisschoolofeconomics.eu" target="_blank" rel="noopener">Paris School of Economics</a>, Asistente de investigación</span></li>
+      <li><span class="when">2021</span><span><a href="https://www.undp.org/honduras" target="_blank" rel="noopener">Programa de las Naciones Unidas para el Desarrollo</a>, Honduras, Miembro del equipo consultor, Informe de Desarrollo Humano 2022</span></li>
+      <li><span class="when">2015 – 2019</span><span><a href="https://www.davivienda.com.hn" target="_blank" rel="noopener">Banco Davivienda</a>, Honduras, Analista financiero corporativo</span></li>
+    </ul>
+
+    <!-- Education -->
+    <h4>Formación</h4>
+    <ul class="cv-list">
+      <li><span class="when">2019 – 2021</span><span><a href="https://www.pantheonsorbonne.fr" target="_blank" rel="noopener">Université Paris 1 Panthéon-Sorbonne</a>, Máster en Economía del Desarrollo, vía de investigación</span></li>
+      <li><span class="when">2009 – 2014</span><span><a href="https://www.unicah.edu" target="_blank" rel="noopener">Universidad Católica de Honduras</a>, Licenciatura en Finanzas</span></li>
+    </ul>
+
+    <!-- Grants -->
+    <h4>Becas</h4>
+    <ul class="cv-list">
+      <li><span class="when">2019 – 2021</span><span><a href="https://www.campusfrance.org" target="_blank" rel="noopener">Campus France</a>, Gobierno de Francia, Beca de Excelencia Centroamericana</span></li>
+      <li><span class="when">2019 – 2021</span><span>Gobierno de Honduras, Beca de Excelencia Académica Internacional</span></li>
+    </ul>
+
+    <!-- Skills -->
+    <h4>Competencias</h4>
+    <ul class="cv-list">
+      <li><span class="label">Datos</span><span>Construcción y armonización de bases de datos, experiencia con datos administrativos y de encuestas, y visualización</span></li>
+      <li><span class="label">Métodos</span><span>Datos de panel, series de tiempo, estudios de eventos, análisis distributivo, microsimulaciones</span></li>
+      <li><span class="label">Programación</span><span>Stata, R, LaTeX, GitHub</span></li>
+      <li><span class="label">Idiomas</span><span>Español (nativo), inglés (fluido), francés (avanzado)</span></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>© 2026 Carlos Salgado García</footer>
+
+<script>
+  // Menu bar changes color after scrolling down
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Three-line menu button on phones
+  const btn = document.querySelector('.menu-btn');
+  const links = document.getElementById('nav-links');
+  btn.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Highlight the menu item of the section on screen
+  const menuLinks = [...links.querySelectorAll('a')];
+  const sections = menuLinks.map(a => document.querySelector(a.getAttribute('href')));
+  const highlight = () => {
+    const y = window.scrollY + 120;
+    let current = 0;
+    sections.forEach((s, i) => { if (s && s.offsetTop <= y) current = i; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) current = sections.length - 1;
+    menuLinks.forEach((a, i) => a.classList.toggle('active', i === current));
+  };
+  window.addEventListener('scroll', highlight, { passive: true });
+  highlight();
+</script>
+</body>
+</html>
